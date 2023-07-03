@@ -1,32 +1,64 @@
 <template>
-  <div id="app">
-    <nav>
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </nav>
-    <router-view/>
+  <div>
+    <!-- 顶部导航栏 -->
+    <div class="footer_wrap">
+      <!-- 路由导航 -->
+      <router-link to="/home">首页</router-link>
+      <router-link to="/user">个人中心</router-link>
+      <router-link to="/setting">设置页</router-link>
+      <router-link to="/shopcar">购物车</router-link>
+    </div>
+    <!-- 下面内容 -->
+    <div class="top">
+      <!-- 路由出口 -->
+      <router-view></router-view>
+    </div>
   </div>
 </template>
 
-<style lang="less">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+<script>
+export default {
+  methods: {}
+}
+</script>
+
+<style scoped>
+body,
+html {
+  margin: 0;
+  padding: 0;
+}
+.footer_wrap {
+  position: fixed;
+  left: 0;
+  top: 0;
+  display: flex;
+  width: 100%;
   text-align: center;
-  color: #2c3e50;
+  background-color: #333;
+  color: #ccc;
+}
+.footer_wrap a,
+span {
+  cursor: pointer;
+  flex: 1;
+  text-decoration: none;
+  padding: 15px 0;
+  line-height: 20px;
+  background-color: #333;
+  color: #ccc;
+  border: 1px solid black;
+}
+.footer_wrap a:hover,
+span:hover {
+  background-color: #555;
 }
 
-nav {
-  padding: 30px;
+.top {
+  padding-top: 50px;
+}
 
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
-    }
-  }
+.footer_wrap .router-link-active {
+  background-color: #000;
 }
 </style>
